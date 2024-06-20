@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, TextInput, View, Text } from 'react-native';
+import { Button, Image, StyleSheet, Text, TextInput, View } from 'react-native';
 
 const LoginScreen = ({ navigation }) => {
   const [name, setName] = useState('');
@@ -12,8 +12,8 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.textBrand}>Codec</Text>
-      <Text style={styles.header}>Welcome back</Text>
-      <Text style={styles.text}>Let's log in. Apply to jobs!</Text>
+      <Text style={styles.TextBrand}>Welcome back 👋</Text>
+      <Text style={styles.textBrand1}>Let's log in. Apply to jobs!</Text>
       <TextInput
         placeholder="Name"
         value={name}
@@ -31,10 +31,16 @@ const LoginScreen = ({ navigation }) => {
       </View>
       <Text style={styles.orText}>or continue with</Text>
       <View style={styles.socialContainer}>
-        <Button title="Apple" onPress={() => {}} />
-        <Button title="Google" onPress={() => {}} />
-        <Button title="Facebook" onPress={() => {}} />
+        <Image source={require('../../assets/download.png')} style={styles.socialImage} />
+        
+        <Image source={require('../../assets/google.png')} style={styles.socialImage} /> 
+         
+        <Image source={require('../../assets/facebook.png')} style={styles.socialImage} />
+      
       </View>
+      <View style={styles.registerContainer}>
+        <Image source={require('../../assets/register.png')} style={styles.registerImage}/> 
+        </View>
     </View>
   );
 };
@@ -43,12 +49,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    padding: 16,
+    padding: 20,
+    margin:20,
   },
   text: {
     fontSize: 16,
     marginBottom: 16,
-    textAlign: 'left',
+    textAlign: 'bottom',
   },
   textBrand: {
     fontSize: 20,
@@ -56,9 +63,16 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     textAlign: 'left',
   },
-  header: {
+  textBrand1: {
+    fontSize: 16,
+    color: 'black',
+    marginBottom: 16,
+    textAlign: 'left',
+  },
+  TextBrand: {
     fontSize: 24,
-    marginBottom: 5,
+    color: 'black',
+    marginBottom: 16,
     textAlign: 'left',
   },
   input: {
@@ -68,32 +82,43 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 20,
     paddingLeft: 20,
-    padding:20,
   },
   buttonContainer: {
     marginTop: 12,
     height: 40,
-    fontSize: 24,                          
-    color:'#ffffff',
-    borderColor: 'gray',
-    borderWidth: 1,
+    color: 'white',
+    backgroundColor:'#7799ff',
     borderRadius: 10,
-    backgroundColor: '#7799ff',
     marginBottom: 12,
     justifyContent: 'center',
-    
-    
-    
   },
   orText: {
     fontSize: 16,
     marginTop: 20,
     textAlign: 'center',
   },
-  socialContainer: {
-    marginTop: 12,
+  registerContainer: {
+    marginTop: 20,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-around',
+  },
+  socialContainer: {
+    margin: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  image: {
+    width: 30,
+    height: 20,
+    alignSelf: 'center',
+    marginBottom: 20,
+    padding: 40,
+  },
+  socialImage: {
+    width: 50,
+    height: 50,
   },
 });
 

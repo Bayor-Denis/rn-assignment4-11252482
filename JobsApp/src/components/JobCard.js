@@ -1,32 +1,44 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
-const JobCard = ({ title, company }) => {
+const JobCard = ({ title, company, image }) => {
   return (
     <View style={styles.card}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.company}>{company}</Text>
+      <Image source={image} style={styles.image} />
+      <View style={styles.info}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.company}>{company}</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    padding: 16,
-    marginVertical: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 30,
     backgroundColor: '#fff',
-    borderRadius: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
+    borderRadius: 10,
+    marginBottom: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    elevation: 2,
+  },
+  image: {
+    width: 60,
+    height: 50,
+    marginRight: 10,
+  },
+  info: {
+    flex: 1,
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
   },
   company: {
-    fontSize: 16,
+    fontSize: 14,
     color: 'gray',
   },
 });
